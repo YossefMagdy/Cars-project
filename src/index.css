@@ -1,0 +1,11 @@
+h1,h2,h3,h4,h5,h6{
+  font-family: Playfair Display,Georgia,serif;
+}
+
+.nav-item{
+  cursor: pointer;
+  transition: 0.3s;
+}
+.nav-item:hover a{
+  color:  #1572d3 ;
+}
