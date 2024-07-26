@@ -33,7 +33,7 @@ export default function Navbar() {
 
       <div className='ms-5'>
         <Button buttonName="Sign In" className="btn" />
-        <Button buttonName="Sign out" className="btn" buttonStyle={{backgroundColor:'#1572d3', width:'100px',color:'white'}}/>
+        <Button buttonName="Sign Up" className="btn" buttonStyle={{backgroundColor:'#1572d3', width:'100px',color:'white'}}/>
       </div>
       
     </div>

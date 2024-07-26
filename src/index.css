@@ -1,3 +1,5 @@
+
+
 h1,h2,h3,h4,h5,h6{
   font-family: Playfair Display,Georgia,serif;
 }
@@ -8,4 +10,11 @@ h1,h2,h3,h4,h5,h6{
 }
 .nav-item:hover a{
   color:  #1572d3 ;
+}
+
+.horizontalLine{
+  width: 95%;
+  height: 2px;
+  background-color: #dee2e6;
+  margin: 1em auto;
 }

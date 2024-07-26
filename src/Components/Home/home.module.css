@@ -3,7 +3,10 @@
     height: 100vh;
     display: flex;
     overflow: hidden;
-    animation:home_section 0.6s;
+    animation:home_section 1s;
+}
+.Home_section div:first-of-type{
+    padding: 0 1em;
 }
 .Home_section span{
     position: relative;
@@ -24,49 +27,60 @@
 
 }
 .animateSection{
-    width: 0%;
+    width: 100%;
     background-image: url('../../assets/landing-page/Frame.png');
     background-position: right;
     background-size: 60% 100%;
     background-repeat: no-repeat;
     overflow: hidden;
-    animation:car_section 0.6s ;
+    
+  
+}
+.animateSection img{
+    width: 0;
+  animation:car_section 1s ;
     animation-delay: 0.3s;
     animation-fill-mode: forwards;
-    animation-direction: alternate;
+    animation-direction: alternate; 
 }
-
 @keyframes car_section{
     0%{
             width: 0 ;
             
     }
     100%{
-            width: 50% ;
+            width: 80% ;
     }
 }
 
 @media (max-width:768px){
     .Home_section{
-        display: block;
+        flex-direction: column;
     }
     .Home_section div{
        width: 100% !important;
-       height: 50% !important;
+       height: 60% !important;
     }
-    div:first-of-type{
+    .Home_section div:first-of-type{
         text-align: center;
+        order: 2;
     }
     .animateSection{
-        background-position: center;
-        background-size: 100% 100%;
+        background-position: right;
+        background-size: 60% 100%;
         background-repeat: no-repeat;
+        order: 1;
+        overflow: visible;
     }
+    .animateSection img{
+        margin-top: 12em !important;
+    }
+    
 }
 
 @keyframes home_section{
     0%{
-            height: 0vh;
+            height: 50vh;
     }
     100%{
             height: 100vh;

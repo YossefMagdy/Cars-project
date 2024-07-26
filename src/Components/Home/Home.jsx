@@ -20,7 +20,7 @@ export default function Home() {
                     
                 </div>
                 <div className={`h-100  d-flex align-items-center justify-content-end ${style.animateSection}`}>
-                        <img style={{width:'80%'}} className=' mt-5' src={Homeimg.car} alt="car_img" />
+                        <img  className=' mt-5' src={Homeimg.car} alt="car_img" />
                 </div>
         </main>
     </>

@@ -3,11 +3,16 @@
     background-color: white;
     box-shadow: 0px 6px 12px 0px #135EAC1F;
     display: flex;
-    flex-wrap: wrap;
-    padding: 10px 20px;
+    margin: 1em auto;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
 }
 .Search_bar div{
     display: flex;
     align-items:center ;
     flex-grow: 1;
+}
+.Search_bar input:focus{
+    outline: 0;
+    box-shadow: none;
 }

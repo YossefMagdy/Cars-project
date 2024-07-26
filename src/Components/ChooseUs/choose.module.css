@@ -1,0 +1,20 @@
+
+.car_container{
+    width: 100%;
+    background-image: url('../../assets/landing-page/sec-5/Vector.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.chosseUsContent{
+    width: 100%;
+}
+
+@media  (max-width:992px){
+    .chosseUsContent{
+        width: 100% !important;
+    }
+ .chooseUs   Button{
+        margin: auto;
+    }
+   
+}

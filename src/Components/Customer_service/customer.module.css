@@ -1,0 +1,23 @@
+.cutomer_container{
+    background: #f7fbff  url('../../assets/landing-page/sec-6/bg-sec6.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    padding: 1em 0;
+}
+.customer_feedback {
+    width: 540px;
+    flex-direction: row !important;
+}
+.customer_feedback div{
+    width: 50%;
+}
+
+@media (max-width:600px) {
+    .customer_feedback{
+        flex-direction: column !important;
+        width: 80%;
+    }
+    .customer_feedback div{
+        width: 100%;
+    }
+}
