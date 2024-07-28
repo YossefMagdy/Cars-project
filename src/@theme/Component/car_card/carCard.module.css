@@ -1,0 +1,6 @@
+.car_title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: inherit; 
+    white-space: nowrap;
+}

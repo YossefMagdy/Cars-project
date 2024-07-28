@@ -1,30 +1,73 @@
+import {  useNavigate } from "react-router-dom";
 import Button from "../../@theme/Component/Button/Button";
 import Car_card from "../../@theme/Component/car_card/Car_card";
 import { card_card } from "../../@theme/Component/car_card/imgAsset";
 import Search_bar from "../../@theme/Component/Search_bar/Search_bar";
-import { carsDetails } from "./Data";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
+import bluebcar from '../../assets/card/car3.png';
+import greencar from '../../assets/card/car1.png';
 
+const carImage=[
+  bluebcar,
+  greencar,
+]
 
 export default function Popular_Deals() {
+  const navigate=useNavigate()
+  const [cars,setCars]=useState([]);
+  const [filteredCars, setFilteredCars] = useState([]);
+
+
+
+  useEffect(()=>{
+    async function getVehicle(){
+      let response = await axios.get('https://freetestapi.com/api/v1/cars');
+      setCars(response.data)
+      setFilteredCars(response.data.slice(0,4))
+    }
+  
+    getVehicle()
+  },[]);
+
+  function onSearching(searchingText){
+
+    if(searchingText.trim()===''){
+      setFilteredCars(cars.slice(0,4))
+    }
+    else{
+      const filtered=cars.filter(car =>
+        car.make.toLowerCase().includes(searchingText.toLowerCase()) ||
+        car.model.toLowerCase().includes(searchingText.toLowerCase())
+      );
+      setFilteredCars(filtered.slice(0,4))
+    }
+
+  }
+
+  function goToVehicleDetails(id){
+    navigate(`all-vehicles/car/${id}`)
+  }
   return (
     <>
         <div className="container mt-5">
-        <Search_bar />
-        <Button buttonName="POPULAR RENTAL DEALS" className="btn text-primary mx-auto d-block" buttonStyle={{width:"220px",backgroundColor:"#1572d31a",border:"1px solid #1572d31a"}} />
+        <Search_bar handlingSearchFunc={onSearching} />
+        <Button buttonName="POPULAR RENTAL DEALS" className="btn text-primary mx-auto d-block " buttonStyle={{width:"220px",backgroundColor:"#1572d31a",border:"1px solid #1572d31a"}} />
           <h2 className="text-center my-4 fw-semibold">Most popular cars rental deals</h2>
 
           <div className="row justify-content-center">
-          {carsDetails.map((car,index)=> ( 
+          {filteredCars.map((car,index)=> ( 
             
-              <div className="col-xxl-3 col-xl-4 col-md-6 "  key={index}>
-                <Car_card  card_title={car.card_title}  car_price={car.car_price} card_image={car.card_image}/>
-              </div>
+            <div className="col-xxl-3 col-xl-4 col-md-6" key={index}>
+            <Car_card showDetailButton={()=>goToVehicleDetails(car.id)} car_id={car.id} card_title={car.make + ' ' + car.model} car_price={car.price} card_image={carImage[Math.floor(Math.random() * 2)]} />
+          </div>
             
             ))}
           </div>
 
-            <Button  buttonName="Show All Details"  buttonStyle={{width:"200px"}} className="btn border-1 border-black mx-auto d-block my-4"> <i className="fa-solid fa-arrow-right"></i></Button>
+
+            <Button  buttonName="Show All Details" onClick={()=>navigate('all-vehicles')}  buttonStyle={{width:"200px"}} className="btn border-1 border-black mx-auto d-block my-4 showDetailsButton"> <i className="fa-solid fa-arrow-right"></i></Button>
           
             <Button buttonName="How iT WORK" className="btn text-primary mx-auto d-block my-5" buttonStyle={{width:"150px",backgroundColor:"#1572d31a",border:"1px solid #1572d31a"}} />
               <h3 className="m-auto text-center fw-fw-semibold">Most popular cars rental deals</h3>
@@ -54,11 +97,11 @@ export default function Popular_Deals() {
               </div>
               
 
-              <div className="d-flex justify-content-between flex-wrap">
-                <img src={card_card.audi} alt="audi" />
-                <img src={card_card.jaguar} alt="jaguar" />
-                <img src={card_card.nissan} alt="nissan" />
-                <img src={card_card.ac} alt="ac" />
+              <div className="d-flex justify-content-around flex-wrap">
+                <img src={card_card.audi} alt="audi" className="m-2"/>
+                <img src={card_card.jaguar} alt="jaguar" className="m-2"/>
+                <img src={card_card.nissan} alt="nissan"className="m-2" />
+                <img src={card_card.ac} alt="ac" className="m-2" />
               </div>
         </div>
     </>

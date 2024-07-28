@@ -5,6 +5,7 @@ import star from '../../../assets/card/star.png';
 import user from '../../../assets/card/user.png';
 import d8wxke_2_ from '../../../assets/card/d8wxke_2_.png';
 import Frame from '../../../assets/card/Frame.png';
+import doors from '../../../assets/card/doors.png';
 import location from '../../../assets/landing-page/location.png';
 import calender from '../../../assets/landing-page/calender.png';
 import car from '../../../assets/landing-page/car-icon.png';
@@ -26,7 +27,6 @@ export  const card_card={
     audi,
     nissan,
     ac,
-    jaguar
-
-
+    jaguar,
+    doors
 }

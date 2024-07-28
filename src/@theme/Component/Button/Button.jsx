@@ -1,10 +1,10 @@
 
-export default function Button({buttonName,buttonStyle,className,children}) {
+export default function Button({buttonName,buttonStyle,className,children,onClick,...props}) {
     
 
   return (
     <>
-        <button style={buttonStyle} className={`${className}`}>{buttonName} {children}</button>
+        <button {...props} style={buttonStyle} className={`${className}`} onClick={onClick}>{buttonName} {children}</button>
     </>
   )
 }
