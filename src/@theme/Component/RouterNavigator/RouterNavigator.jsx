@@ -6,7 +6,7 @@ export default function RouterNavigator({Router}) {
 
   return (
     <>
-    <div className="d-flex">
+    <div className="d-flex flex-wrap">
       {Router.map((router, index) => (
         <div key={index}>
           {router.ActiveLink ? (
