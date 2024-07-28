@@ -86,15 +86,15 @@ export default function All_vehicles() {
           <nav aria-label="Page navigation example" style={{width:"fit-content",margin:"auto"}}>
           <ul className="pagination">
             <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-              <a className="page-link" href="#" onClick={() => handleClick(currentPage - 1)}>Previous</a>
+              <a className="page-link" style={{cursor:"pointer"}} onClick={() => handleClick(currentPage - 1)}>Previous</a>
             </li>
             {pageNumbers.map(number => (
               <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
-                <a className="page-link" href="#" onClick={() => handleClick(number)}>{number}</a>
+                <a className="page-link" style={{cursor:"pointer"}} onClick={() => handleClick(number)}>{number}</a>
               </li>
             ))}
             <li className={`page-item ${currentPage === pageNumbers.length ? 'disabled' : ''}`}>
-              <a className="page-link" href="#" onClick={() => handleClick(currentPage + 1)}>Next</a>
+              <a className="page-link" style={{cursor:"pointer"}} onClick={() => handleClick(currentPage + 1)}>Next</a>
             </li>
           </ul>
         </nav>
