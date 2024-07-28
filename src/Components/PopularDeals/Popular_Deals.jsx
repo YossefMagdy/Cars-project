@@ -55,7 +55,8 @@ export default function Popular_Deals() {
         <Search_bar handlingSearchFunc={onSearching} />
         <Button buttonName="POPULAR RENTAL DEALS" className="btn text-primary mx-auto d-block " buttonStyle={{width:"220px",backgroundColor:"#1572d31a",border:"1px solid #1572d31a"}} />
           <h2 className="text-center my-4 fw-semibold">Most popular cars rental deals</h2>
-
+          
+          
           <div className="row justify-content-center">
           {filteredCars.map((car,index)=> ( 
             
@@ -65,6 +66,13 @@ export default function Popular_Deals() {
             
             ))}
           </div>
+          {!filteredCars.length && <div className="alert alert-info text-center mt-4">
+          <h4>No Cars Available</h4>
+          <p>
+            Unfortunately, we couldn&apos;t find any cars that match your search criteria. 
+            Please try adjusting your search terms or check back later for more options.
+          </p>
+          </div>}
 
 
             <Button  buttonName="Show All Details" onClick={()=>navigate('all-vehicles')}  buttonStyle={{width:"200px"}} className="btn border-1 border-black mx-auto d-block my-4 showDetailsButton"> <i className="fa-solid fa-arrow-right"></i></Button>

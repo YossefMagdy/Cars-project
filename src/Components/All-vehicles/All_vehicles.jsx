@@ -77,11 +77,18 @@ export default function All_vehicles() {
           <h2 className="text-center my-4 fw-semibold">Most popular cars rental deals</h2>
 
           <div className="row justify-content-center">
-          {currentCars.length && currentCars.map((car, index) => (
+          { currentCars.map((car, index) => (
             <div className="col-xxl-3 col-xl-4 col-md-6" key={index}>
               <Car_card showDetailButton={()=>goToVehicleDetails(car.id)} car_id={car.id} card_title={car.make + ' ' + car.model} car_price={car.price} card_image={carImage[Math.floor(Math.random() * 3)]} />
             </div>
           ))}
+          {!filteredCars.length && <div className="alert alert-info text-center mt-4">
+          <h4>No Cars Available</h4>
+          <p>
+            Unfortunately, we couldn&apos;t find any cars that match your search criteria. 
+            Please try adjusting your search terms or check back later for more options.
+          </p>
+          </div>}
         </div>
           <nav aria-label="Page navigation example" style={{width:"fit-content",margin:"auto"}}>
           <ul className="pagination">
